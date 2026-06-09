@@ -77,21 +77,21 @@ O sistema foi dividido em quatro classes para melhor organização do código e 
 
 ## 🎯 Saída
 
-Ao executar a classe `Main.java`, o programa faz a montagem do grafo da imagem acima e procura por duas cidades, uma existente (`P`) e outra inexistente (`X`) partindo de `A`:
+Ao executar a classe Main.java, o programa faz a montagem do grafo baseado
+no grafo apresentado no problema. Então o sistema informa a quantidade de
+cidades presentes no grafo, através da linha
+
+```java
+// 1. Contagem de cidades
+int totalCidades = grafo.totalCidades();
+```
+
+Depois, a classe procura por duas cidades, uma existente (P) e outra inexistente (X) partindo de A:
 
 ```java
 // 2. Buscando cidades
 boolean achouP = grafo.buscarCidade("A", "P");
 boolean achouX = grafo.buscarCidade("A", "X"); // Cidade inexistente
-```
-
-Após a busca, a classe faz o calculo de distancia entre as cidades desejadas:
-
-```java
-// 3. Distância entre cidades
-int distanciaA_P = grafo.calculaDistanciaEntreCidades("A", "P");
-int distanciaA_F = grafo.calculaDistanciaEntreCidades("A", "F");
-int distanciaA_X = grafo.calculaDistanciaEntreCidades("A", "X");
 ```
 
 Devido à forma como as arestas foram adicionadas e ao comportamento característico da pilha, o algoritmo executa um efeito serpente pelas colunas do grafo.
@@ -100,9 +100,18 @@ Para encontrar a cidade "P" partindo de "A", o algoritmo passa exatamente pela s
 
 $$A \rightarrow E \rightarrow I \rightarrow M \rightarrow N \rightarrow J \rightarrow F \rightarrow B \rightarrow C \rightarrow G \rightarrow K \rightarrow O \rightarrow P$$
 
-O programa gera o seguinte resultado no terminal demonstrando os passos e as distâncias (em saltos iterativos):
+Após a busca, a classe faz o calculo de distancia entre as cidades desejadas:
 
-```plaintext
+```java
+// 3. Distância entre cidades
+    int distanciaA_P = grafo.calculaDistanciaEntreCidades("A", "P");
+    int distanciaA_F = grafo.calculaDistanciaEntreCidades("A", "F");
+    int distanciaA_X = grafo.calculaDistanciaEntreCidades("A", "X");
+```
+
+O programa gera o seguinte resultado no terminal demonstrando os passos e as distâncias :
+
+```text
 Quantidade total de cidades no grafo: 16
 
 Cidade 'P' encontrada!
